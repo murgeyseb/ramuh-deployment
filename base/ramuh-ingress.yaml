@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ramuh-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: ramuh-ip
+    ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /api/grid-overlay-provider/*
+          backend:
+            serviceName: ramuh-grid-overlay-provider
+            servicePort: 80
+        - path: /*
+          backend:
+            serviceName: ramuh-front
+            servicePort: 80

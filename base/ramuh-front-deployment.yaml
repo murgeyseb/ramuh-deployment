@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ramuh-front
+  labels:
+    name: ramuh-front
+    app: front
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ramuh-front
+  template:
+    metadata:
+      labels:
+        app: ramuh-front
+    spec:
+      containers:
+      - name: ramuh-front
+        image: gcr.io/project-ramuh/front:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/share/nginx/html/config.js
+          subPath: config.js
+      volumes:
+      - name: config-volume
+        configMap:
+          name: ramuh-front-config

@@ -1,0 +1,6 @@
+resources:
+  - ramuh-front-deployment.yaml
+  - ramuh-front-service.yaml
+  - ramuh-grid-overlay-provider-deployment.yaml
+  - ramuh-grid-overlay-provider-service.yaml
+  - ramuh-ingress.yaml

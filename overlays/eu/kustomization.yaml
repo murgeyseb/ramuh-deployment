@@ -1,0 +1,6 @@
+bases:
+  - ../../base
+configMapGenerator:
+  - name: ramuh-front-config
+    files:
+      - config.js
