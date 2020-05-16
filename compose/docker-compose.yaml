@@ -11,7 +11,7 @@ services:
       - ramuh-front-network
       - ramuh-grid-overlay-provider-network
   ramuh-front:
-    image: gcr.io/project-ramuh/front:latest
+    image: ramuh/front:latest
     expose:
       - "80"
     volumes: 
@@ -19,7 +19,7 @@ services:
     networks:
       - ramuh-front-network
   ramuh-grid-overlay-provider:
-    image: gcr.io/project-ramuh/grid-overlay-provider:latest
+    image: ramuh/grid-overlay-provider:latest
     expose:
       - "8080"
     networks:
